@@ -1,20 +1,17 @@
 name: AI Code Review
 
 on:
-  pull_request_target:
-    types: [opened, synchronize, reopened]
+  push:
+    branches-ignore:
+      - main
 
 jobs:
   review:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      issues: write
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
+          fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -24,23 +21,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Get PR diff
-        run: git diff origin/${{ github.base_ref }}...HEAD > pr_diff.txt
-
       - name: Run AI Review
-        run: python reviewer.py < pr_diff.txt > review_result.txt
+        run: git diff HEAD~1 HEAD | python reviewer.py
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-
-      - name: Post Review Comment
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const fs = require('fs');
-            const review = fs.readFileSync('review_result.txt', 'utf8');
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `## 🤖 AI 코드 리뷰\n\n${review}`
-            });
