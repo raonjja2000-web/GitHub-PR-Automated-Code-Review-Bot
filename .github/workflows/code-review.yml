@@ -1,15 +1,19 @@
 name: AI Code Review
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  pull_request_target:
+    types: [opened, synchronize, reopened]
 
 jobs:
   review:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
     steps:
       - uses: actions/checkout@v3
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -21,15 +25,12 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Get PR diff
-        id: diff
-        run: |
-          git diff origin/${{ github.base_ref }}...HEAD > pr_diff.txt
-          echo "diff_file=pr_diff.txt" >> $GITHUB_OUTPUT
+        run: git diff origin/${{ github.base_ref }}...HEAD > pr_diff.txt
 
       - name: Run AI Review
         run: python reviewer.py < pr_diff.txt > review_result.txt
         env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Post Review Comment
         uses: actions/github-script@v6
