@@ -1,7 +1,8 @@
-import anthropic
+import os
 import sys
+from groq import Groq
 
-client = anthropic.Anthropic()
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 diff = sys.stdin.read()
 
@@ -9,9 +10,7 @@ if not diff.strip():
     print("변경된 코드가 없습니다.")
     sys.exit(0)
 
-message = client.messages.create(
-    model="claude-sonnet-4-6",
-    max_tokens=2048,
+chat_completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
@@ -26,7 +25,8 @@ message = client.messages.create(
 코드 변경사항:
 {diff}"""
         }
-    ]
+    ],
+    model="llama-3.3-70b-versatile",
 )
 
-print(message.content[0].text)
+print(chat_completion.choices[0].message.content)
