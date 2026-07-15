@@ -1,7 +1,19 @@
-# GitHub-PR-Automated-Code-Review-Bot# 테스트
-테스트
-테스트
-테스트2
-test3
-trigger
-trigger
+# 🤖 GitHub PR Automated Code Review Bot
+
+> **친구와 협업하여 만든, AI 기반 풀 리퀘스트(PR) 자동 코드 리뷰 시스템입니다.**
+
+---
+
+### 👥 팀원 및 역할 분담 (Team & Roles)
+* **[친구 이름 혹은 깃허브 ID]** (Backend): 시스템 백엔드 아키텍처 설계 및 핵심 파이프라인 구축
+* **[주아 이름 혹은 raonjja2000-web]** (AI/API & Prompt): 
+  * LLM API(Groq / Anthropic) 연동 및 효율적인 호출 구조 구현 (`reviewer.py`)
+  * 코드 퀄리티 향상을 위한 맞춤형 AI 코드 리뷰 프롬프트 설계 및 고도화
+  * 전체 프로젝트 기획서 및 분석 보고서 작성 (PDF 자료 참고)
+
+---
+
+### 🛠️ 주요 기여 내용 (My Contributions)
+1. **API 클라이언트 최적화:** Anthropic 기반 기존 코드에서 비용 효율성과 속도가 뛰어난 Groq API 클라이언트로 교체 및 최적화 작업을 진행했습니다.
+2. **프롬프트 엔지니어링:** AI가 단순히 무의미한 지적을 하는 것이 아니라, 실질적인 코드 개선점과 버그를 찾아낼 수 있도록 정교한 프롬프트를 설계했습니다.
+3. **자동화 워크플로우 연동:** GitHub Actions를 연동하여 개발자가 PR을 올릴 때마다 자동으로 리뷰 댓글이 달리도록 세팅했습니다.
