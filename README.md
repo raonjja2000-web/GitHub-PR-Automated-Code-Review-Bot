@@ -1,20 +1,22 @@
-# 🤖 GitHub PR Automated Code Review Bot
+## Team & Collaboration
 
-> **친구와 협업하여 만든, AI 기반 풀 리퀘스트(PR) 자동 코드 리뷰 시스템입니다.**
+This project was a collaborative effort with a clear division of roles:
 
----
-
-👥 팀원 및 역할 분담 (Team & Roles)
-
-* **ru040509-hash** (Backend): 시스템 백엔드 아키텍처 설계 및 핵심 파이프라인 구축
-* **장주아 (raonjja2000-web)** (AI/API & Prompt):
-    * LLM API(Groq / Anthropic) 연동 및 효율적인 호출 구조 구현 (`reviewer.py`)
-    * 코드 퀄리티 향상을 위한 맞춤형 AI 코드 리뷰 프롬프트 설계 및 고도화
-    * 전체 프로젝트 기획서 및 분석 보고서 작성 (PDF 자료 참고)
+- **ru040509-hash** (Backend Developer)
+  - Designed and built the backend architecture and integration pipelines.
+- **Jua (raonjja2000-web)** (AI/API & Prompt Engineer)
+  - Developed the AI code review engine and integrated LLM APIs.
+  - Authored the comprehensive project report and documentation (PDF).
 
 ---
 
-### 🛠️ 주요 기여 내용 (My Contributions)
-1. **API 클라이언트 최적화:** Anthropic 기반 기존 코드에서 비용 효율성과 속도가 뛰어난 Groq API 클라이언트로 교체 및 최적화 작업을 진행했습니다.
-2. **프롬프트 엔지니어링:** AI가 단순히 무의미한 지적을 하는 것이 아니라, 실질적인 코드 개선점과 버그를 찾아낼 수 있도록 정교한 프롬프트를 설계했습니다.
-3. **자동화 워크플로우 연동:** GitHub Actions를 연동하여 개발자가 PR을 올릴 때마다 자동으로 리뷰 댓글이 달리도록 세팅했습니다.
+## My Contribution (In Detail)
+
+My primary responsibility was implementing and optimizing the core AI review system (`reviewer.py`):
+
+- **API Migration & Optimization:** 
+  Initially, the system utilized the Anthropic API. To significantly improve response speed and cost-efficiency, I successfully migrated the client to the **Groq API client** and optimized the API calling structure.
+- **Prompt Engineering:** 
+  Designed and refined the code review prompts. Through this, I learned how directly prompt design impacts the quality, tone, and accuracy of AI-generated feedback.
+- **Workflow & Documentation:** 
+  Configured the GitHub Actions workflow to trigger the Python script and wrote the detailed project analysis report.
