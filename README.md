@@ -4,12 +4,13 @@
 
 ---
 
-### 👥 팀원 및 역할 분담 (Team & Roles)
-* **[친구 이름 혹은 깃허브 ID]** (Backend): 시스템 백엔드 아키텍처 설계 및 핵심 파이프라인 구축
-* **[주아 이름 혹은 raonjja2000-web]** (AI/API & Prompt): 
-  * LLM API(Groq / Anthropic) 연동 및 효율적인 호출 구조 구현 (`reviewer.py`)
-  * 코드 퀄리티 향상을 위한 맞춤형 AI 코드 리뷰 프롬프트 설계 및 고도화
-  * 전체 프로젝트 기획서 및 분석 보고서 작성 (PDF 자료 참고)
+👥 팀원 및 역할 분담 (Team & Roles)
+
+* **ru040509-hash** (Backend): 시스템 백엔드 아키텍처 설계 및 핵심 파이프라인 구축
+* **장주아 (raonjja2000-web)** (AI/API & Prompt):
+    * LLM API(Groq / Anthropic) 연동 및 효율적인 호출 구조 구현 (`reviewer.py`)
+    * 코드 퀄리티 향상을 위한 맞춤형 AI 코드 리뷰 프롬프트 설계 및 고도화
+    * 전체 프로젝트 기획서 및 분석 보고서 작성 (PDF 자료 참고)
 
 ---
 
